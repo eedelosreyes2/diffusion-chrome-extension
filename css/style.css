@@ -51,6 +51,7 @@ input::placeholder {
 
 .diffuse-button {
   color: white;
+  cursor: pointer;
   background-color: #00b1d2;
   border: none;
   border-radius: 12px;

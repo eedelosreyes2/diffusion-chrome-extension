@@ -22,19 +22,18 @@
   </head>
 
   <body>
-    <div class="modal-container">
+    <div id="modal" class="modal-container">
       <h1>[logo]</h1>
-      <span class="url">thisurl.com</span>
+      <span id="url" class="url"></span>
 
-      <form action="popup.js" method="GET">
+      <form id="form" action="popup.js" method="GET">
         <input type="text" id="title" placeholder="Title" />
         <input type="text" id="brainfart" placeholder="Brainfart" />
         <input type="text" id="categories" placeholder="Categories" />
 
-        <!-- dynamic dropdown -->
-        <!-- slef growht passion music beauty photography, everyday life -->
-        <button id="diffuse" class="diffuse-button">Diffuse</button>
+        <!-- dynamic dropdown: self growth, passion, music, beauty, photography, everyday life -->
       </form>
+      <button id="diffuse-button" class="diffuse-button">Diffuse</button>
     </div>
   </body>
 </html>
