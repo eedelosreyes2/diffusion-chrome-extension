@@ -25,21 +25,12 @@ function displayUrl(url) {
   document.getElementById("url").innerHTML = strippedUrl;
 }
 
-// Edit
-function sendData() {
-  $.ajax({
-    type: "POST",
-    url: serviceUrl,
-    data: data,
-    success: function (msg) {
-      if (typeof Me.config.onSumitted == "function") {
-        Me.config.onSumitted(msg);
-      }
-    },
-    error: function () {
-      if (typeof Me.config.onError == "function") {
-        Me.config.onError();
-      }
-    },
-  });
+function load() {
+  var xhttp = new XMLHttpRequest();
+
+  xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("demo").innerHTML = this.responseText;
+    }
+  };
 }
