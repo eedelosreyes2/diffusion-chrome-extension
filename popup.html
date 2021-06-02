@@ -45,3 +45,16 @@
     </div>
   </body>
 </html>
+
+<!-- Architecture -->
+<!--
+  Save data from Chrome Extension to localstorage instead of server
+
+  How to save data per user?
+    In Pinboard creator:
+    - componentDidMount:
+        check localstorage -> save new data into New Content list
+        fetch user data from database
+    - componentWillUnmount: 
+        save all data to database
+-->

@@ -7,5 +7,5 @@
     "default_icon": "icon.png",
     "default_popup": "popup.html"
   },
-  "permissions": ["activeTab"]
+  "permissions": ["storage", "activeTab", "http://localhost:3000/api/getLists"]
 }
