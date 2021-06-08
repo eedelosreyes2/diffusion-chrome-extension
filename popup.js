@@ -7,13 +7,17 @@ function getUserInfo() {
 	addEventListener(
 		'load',
 		function () {
-			var MAJOR_VERSION = 1.0;
+			var MAJOR_VERSION = 2.0;
 			if (
 				!localStorage.updateread ||
 				localStorage.updateread != MAJOR_VERSION
 			) {
 				var email = prompt('What is your Google email address?');
+				var username = prompt(
+					'What would you like your username to be?'
+				);
 				localStorage['Email'] = email;
+				localStorage['Username'] = username;
 				localStorage.updateread = MAJOR_VERSION;
 			}
 		},
@@ -31,35 +35,36 @@ function displayForm(url) {
 		brainfart = document.getElementById('brainfart').value;
 		category = document.getElementById('categories').value;
 
-		sendData(title, brainfart, category);
-		// getData();
+		sendData(strippedUrl, title, brainfart, category);
 	});
 }
 
-function sendData(title, brainfart, category) {
+function sendData(strippedUrl, title, brainfart, category) {
+	email = localStorage['Email'];
+	username = localStorage['Username'];
+
+	message = `New content added!\n${title}\n${brainfart}\n${category}`;
+
 	url =
 		'https://diffusion-web-app-mvp-default-rtdb.firebaseio.com/' +
-		localStorage['Email'] +
-		'/newList';
+		username +
+		'/newList.json';
 
 	fetch(url, {
 		method: 'POST',
 		headers: {
 			Accept: 'application/json',
 			'Content-Type': 'application/json',
-			'Access-Control-Allow-Origin': '*',
-			'Access-Control-Allow-Methods': 'POST, GET, PUT',
-			'Access-Control-Allow-Headers':
-				'Origin, X-Requested-With, Content-Type, Accept',
 		},
-		body: JSON.stringify({ a: 1, b: 'Textual content' }),
+		body: JSON.stringify({
+			email: email,
+			url: strippedUrl,
+			contentTitle: title,
+			brainfart: brainfart,
+			category: category,
+		}),
 	})
 		.then((res) => res.json())
-		.then((res) => alert(res));
-}
-
-function getData() {
-	fetch('https://diffusion-web-app-mvp-default-rtdb.firebaseio.com/data.json')
-		.then((response) => response.json())
-		.then((data) => console.log(data));
+		.then(() => alert(message))
+		.then(() => window.close());
 }
