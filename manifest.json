@@ -1,11 +1,15 @@
 {
-  "manifest_version": 2,
-  "name": "Diffusion Chrome Extension",
-  "description": "Chrome Extension for Diffusion.me",
-  "version": "1.0.0",
-  "browser_action": {
-    "default_icon": "icon.png",
-    "default_popup": "popup.html"
-  },
-  "permissions": ["storage", "activeTab", "http://localhost:3000/api/getLists"]
+	"manifest_version": 2,
+	"name": "Diffusion Chrome Extension",
+	"description": "Chrome Extension for Diffusion.me",
+	"version": "1.0.0",
+	"browser_action": {
+		"default_icon": "icon.png",
+		"default_popup": "popup.html"
+	},
+	"permissions": [
+		"storage",
+		"activeTab",
+		"https://diffusion-web-app-mvp-default-rtdb.firebaseio.com/*"
+	]
 }
