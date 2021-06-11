@@ -1,68 +1,87 @@
-@import url("https://fonts.googleapis.com/css?family=Aleo&display=swap");
+@import url('https://fonts.googleapis.com/css?family=Aleo&display=swap');
 
 html,
 body {
-  font-family: "Aleo", serif;
-  font-size: 14px;
-  margin: 0;
-  min-height: 200px;
-  padding: 0;
-  width: 300px;
+	font-family: 'Aleo', serif;
+	font-size: 14px;
+	margin: 0;
+	min-height: 200px;
+	padding: 0;
+	width: 300px;
 }
 
 h1 {
-  color: #00b1d2;
-  font-family: Aleo, serif;
-  font-size: 22px;
-  margin: 0;
+	color: #00b1d2;
+	font-family: Aleo, serif;
+	font-size: 22px;
+	margin: 0;
 }
 
 a {
-  color: inherit;
-  text-decoration: inherit;
+	color: inherit;
+	text-decoration: inherit;
 }
 
 input,
 select {
-  border: 1px solid #00b1d2;
-  border-radius: 12px;
-  color: gray;
-  height: 30px;
-  outline: none;
-  text-align: center;
-  width: 100%;
+	border: 1px solid #00b1d2;
+	border-radius: 12px;
+	color: gray;
+	height: 30px;
+	margin: 5px 0;
+	outline: none;
+	text-align: center;
+	width: 98%;
+}
+
+select {
+	height: 33px;
+	width: 100%;
 }
 
 input::placeholder,
 select::placeholder {
-  color: gray;
-  text-align: center;
+	color: gray;
+	text-align: center;
 }
 
 select {
-  appearance: none;
-  text-align-last: center;
+	appearance: none;
+	text-align-last: center;
 }
 
 .modal-container {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 20px;
+	align-items: center;
+	border: 2px solid #00b1d2;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 25px 25px 50px 25px;
 }
 
 .url {
-  color: gray;
+	color: gray;
+	font-weight: bold;
+	margin: 10px;
 }
 
 .diffuse-button {
-  color: white;
-  cursor: pointer;
-  background-color: #00b1d2;
-  border: none;
-  border-radius: 12px;
-  height: 30px;
-  outline: none;
-  width: 100%;
+	color: white;
+	cursor: pointer;
+	background-color: #00b1d2;
+	border: none;
+	border-radius: 12px;
+	height: 33px;
+	margin: 5px 0;
+	outline: none;
+	width: 50%;
+}
+
+.email {
+	bottom: 10px;
+	color: #00b1d2;
+	cursor: pointer;
+	font-weight: 900;
+	position: absolute;
+	right: 10px;
 }

@@ -1,53 +1,67 @@
 chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
 	getUserInfo();
-	displayForm(tabs[0].url);
+	displayPopup(tabs[0].url);
 });
 
-function getUserInfo() {
-	addEventListener(
-		'load',
-		function () {
-			var MAJOR_VERSION = 2.0;
-			if (
-				!localStorage.updateread ||
-				localStorage.updateread != MAJOR_VERSION
-			) {
-				var email = prompt('What is your Google email address?');
-				var username = prompt(
-					'What would you like your username to be?'
-				);
-				localStorage['Email'] = email;
-				localStorage['Username'] = username;
-				localStorage.updateread = MAJOR_VERSION;
+function loginUser() {
+	MAJOR_VERSION = 2.0;
+	if (!localStorage.updateread || localStorage.updateread != MAJOR_VERSION) {
+		isValid = false;
+		regex = /^[^\s@]+@[^\s@]+$/;
+
+		while (!isValid) {
+			email = prompt('What is your Google email address?');
+			console.log(email);
+			if (email === null) {
+				window.close();
+				return;
 			}
-		},
-		0
-	);
+			isValid = regex.test(email);
+		}
+		localStorage['Email'] = email;
+		localStorage.updateread = MAJOR_VERSION;
+	}
 }
 
-function displayForm(url) {
+function getUserInfo() {
+	if (!localStorage['Email']) {
+		addEventListener('load', loginUser(), 0);
+	}
+}
+
+function displayPopup(url) {
 	strippedUrl = url.replace(/^(?:https?:\/\/)?(?:www\.)?/i, '').split('/')[0];
 	document.getElementById('url').innerHTML = strippedUrl;
 
 	button = document.getElementById('diffuse-button');
 	button.addEventListener('click', function (e) {
 		title = document.getElementById('title').value;
-		brainfart = document.getElementById('brainfart').value;
+		quickThoughts = document.getElementById('quick-thoughts').value;
 		category = document.getElementById('categories').value;
 
-		sendData(strippedUrl, title, brainfart, category);
+		sendData(strippedUrl, title, quickThoughts, category);
 	});
+
+	emailButton = document.getElementById('email-button');
+	emailButton.addEventListener('click', function (e) {
+		localStorage.updateread = 0;
+		loginUser();
+		window.close();
+	});
+	if (localStorage['Email']) {
+		emailButton.innerHTML = localStorage['Email'];
+	}
 }
 
-function sendData(strippedUrl, title, brainfart, category) {
+function sendData(strippedUrl, title, quickThoughts, category) {
 	email = localStorage['Email'];
-	username = localStorage['Username'];
+	email = email.replace(/[^a-zA-Z0-9 ]/g, '');
 
-	message = `New content added!\n${title}\n${brainfart}\n${category}`;
+	message = `New content added!\n${title}\n${quickThoughts}\n${category}`;
 
 	url =
 		'https://diffusion-web-app-mvp-default-rtdb.firebaseio.com/' +
-		username +
+		email +
 		'/newList.json';
 
 	fetch(url, {
@@ -57,10 +71,9 @@ function sendData(strippedUrl, title, brainfart, category) {
 			'Content-Type': 'application/json',
 		},
 		body: JSON.stringify({
-			email: email,
 			url: strippedUrl,
 			contentTitle: title,
-			brainfart: brainfart,
+			quickThoughts: quickThoughts,
 			category: category,
 		}),
 	})
