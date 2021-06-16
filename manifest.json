@@ -8,7 +8,6 @@
 		"default_popup": "popup.html"
 	},
 	"permissions": [
-		"storage",
 		"activeTab",
 		"https://diffusion-web-app-mvp-default-rtdb.firebaseio.com/*"
 	]
