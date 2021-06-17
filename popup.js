@@ -62,7 +62,7 @@ function sendData(strippedUrl, title, quickThoughts, category) {
 	url =
 		'https://diffusion-web-app-mvp-default-rtdb.firebaseio.com/' +
 		email +
-		'/newList.json';
+		'/boards/newBoard.json';
 
 	fetch(url, {
 		method: 'POST',
