@@ -31,6 +31,7 @@ select {
 	font-size: 14px;
 	min-height: 30px;
 	margin: auto;
+	padding-top: 12px;
 	outline: none;
 	text-align: center;
 }
@@ -38,7 +39,6 @@ select {
 .quick-thoughts {
 	margin-top: 10px;
 	max-height: 75px;
-	padding-top: 10px;
 	overflow-x: hidden;
 	overflow-y: auto;
 	resize: none;
@@ -48,6 +48,7 @@ select {
 select {
 	appearance: none;
 	margin: 5px 0;
+	padding-bottom: 12px;
 	text-align-last: center;
 	width: 100%;
 }
