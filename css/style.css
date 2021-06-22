@@ -22,32 +22,50 @@ a {
 	text-decoration: inherit;
 }
 
-input,
+.quick-thoughts,
 select {
 	border: 1px solid #00b1d2;
 	border-radius: 12px;
 	color: gray;
-	height: 30px;
-	margin: 5px 0;
+	font-family: 'Aleo', serif;
+	font-size: 14px;
+	min-height: 30px;
+	margin: auto;
 	outline: none;
 	text-align: center;
-	width: 98%;
 }
 
-select {
-	height: 33px;
-	width: 100%;
-}
-
-input::placeholder,
-select::placeholder {
-	color: gray;
-	text-align: center;
+.quick-thoughts {
+	margin-top: 10px;
+	max-height: 75px;
+	padding-top: 10px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	resize: none;
+	width: 250px;
 }
 
 select {
 	appearance: none;
+	margin: 5px 0;
 	text-align-last: center;
+	width: 100%;
+}
+
+.quick-thoughts[contenteditable]:empty::before {
+	content: 'Quick thoughts';
+	color: gray;
+}
+
+.quick-thoughts::-webkit-scrollbar {
+	display: none;
+}
+
+*::placeholder {
+	color: gray;
+	font-family: 'Aleo', serif;
+	margin: auto;
+	text-align: center;
 }
 
 .modal-container {

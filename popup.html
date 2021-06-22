@@ -29,12 +29,13 @@
 			<span id="url" class="url"></span>
 
 			<form id="form" action="popup.js" method="GET">
-				<input type="text" id="title" placeholder="Title" />
-				<input
+				<div
 					type="text"
 					id="quick-thoughts"
+					class="quick-thoughts"
 					placeholder="Quick thoughts"
-				/>
+					contenteditable
+				></div>
 				<select name="categories" id="categories">
 					<option value="none">Categories</option>
 					<option value="Self Growth">Self Growth</option>
