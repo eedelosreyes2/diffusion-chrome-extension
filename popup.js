@@ -35,10 +35,10 @@ function displayPopup(url) {
 
 	button = document.getElementById('diffuse-button');
 	button.addEventListener('click', function (e) {
-		quickThoughts = document.getElementById('quick-thoughts').value;
+		quickThoughts = document.getElementById('quick-thoughts').textContent;
 		category = document.getElementById('categories').value;
 
-		sendData(strippedUrl, quickThoughts, category);
+		sendData(url, quickThoughts, category);
 	});
 
 	emailButton = document.getElementById('email-button');
@@ -52,25 +52,23 @@ function displayPopup(url) {
 	}
 }
 
-function sendData(strippedUrl, quickThoughts, category) {
+function sendData(url, quickThoughts, category) {
 	email = localStorage['Email'];
-	email = email.replace(/[^a-zA-Z0-9 ]/g, '');
-
+	username = email.replace(/[^a-zA-Z0-9 ]/g, '');
 	message = `New content added!\n${quickThoughts}\n${category}`;
-
-	url =
+	endpoint =
 		'https://diffusion-web-app-mvp-default-rtdb.firebaseio.com/' +
-		email +
-		'/boards/newBoard.json';
+		username +
+		'/data/newContent.json';
 
-	fetch(url, {
-		method: 'PUT',
+	fetch(endpoint, {
+		method: 'POST',
 		headers: {
 			Accept: 'application/json',
 			'Content-Type': 'application/json',
 		},
 		body: JSON.stringify({
-			url: strippedUrl,
+			url: url,
 			quickThoughts: quickThoughts,
 			category: category,
 		}),
