@@ -71,6 +71,7 @@ function sendData(url, quickThoughts, category) {
 			url: url,
 			quickThoughts: quickThoughts,
 			category: category,
+			date: Date.now(),
 		}),
 	})
 		.then((res) => res.json())
