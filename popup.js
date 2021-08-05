@@ -57,7 +57,7 @@ function sendData(url, quickThoughts, category) {
 	username = email.replace(/[^a-zA-Z0-9 ]/g, '');
 	message = `New content added!\n${quickThoughts}\n${category}`;
 	endpoint =
-		'https://diffusion-web-app-mvp-default-rtdb.firebaseio.com/' +
+		'https://diffusion-board-creator-default-rtdb.firebaseio.com/' +
 		username +
 		'/data/newContent.json';
 
