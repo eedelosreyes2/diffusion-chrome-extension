@@ -1,55 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Diffusion</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diffusion</title>
 
-		<!-- Import Fonts -->
-		<link rel="preconnect" href="https://fonts.gstatic.com" />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Aleo:wght@400&display=swap"
-			rel="stylesheet"
-		/>
-		<link
-			href="https://fonts.googleapis.com/css2?family=Aleo:wght@700&display=swap"
-			rel="stylesheet"
-		/>
+    <!-- Import Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Aleo:wght@400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Aleo:wght@700&display=swap"
+      rel="stylesheet"
+    />
 
-		<link rel="stylesheet" href="/css/style.css" />
-		<script src="popup.js"></script>
-	</head>
+    <link rel="stylesheet" href="/css/style.css" />
+    <script src="popup.js"></script>
+  </head>
 
-	<body>
-		<div id="modal" class="modal-container">
-			<h1>
-				<a href="https://diffusion.me" target="_blank">Diffusion</a>
-			</h1>
-			<span id="url" class="url"></span>
+  <body>
+    <div id="modal" class="modal-container">
+      <h1>
+        <a href="https://diffusion.me" target="_blank">Diffusion</a>
+      </h1>
+      <span id="url" class="url"></span>
 
-			<form id="form" action="popup.js" method="GET">
-				<div
-					type="text"
-					id="quick-thoughts"
-					class="quick-thoughts"
-					placeholder="Quick thoughts"
-					contenteditable
-				></div>
-				<select name="categories" id="categories">
-					<option value="none">Categories</option>
-					<option value="Self Growth">Self Growth</option>
-					<option value="Passion">Passion</option>
-					<option value="Music">Music</option>
-					<option value="Beauty">Beauty</option>
-					<option value="Photography">Photography</option>
-					<option value="Everyday Life">Everyday Life</option>
-				</select>
+      <form id="form" action="popup.js" method="GET">
+        <div
+          type="text"
+          id="quick-thoughts"
+          class="quick-thoughts"
+          placeholder="Quick thoughts"
+          contenteditable
+        ></div>
+        <select name="categories" id="categories">
+          <option value=" ">Categories</option>
+          <option value="Creativity">Creativity</option>
+          <option value="Entrepreneurship">Entrepreneurship</option>
+          <option value="Fashion">Fashion</option>
+          <option value="Lifestyle">Lifestyle</option>
+          <option value="Music">Music</option>
+          <option value="Random">Random</option>
+        </select>
 
-				<!-- dynamic dropdown: self growth, passion, music, beauty, photography, everyday life -->
-			</form>
-			<button id="diffuse-button" class="diffuse-button">Diffuse</button>
-			<div id="email-button" class="email">@</div>
-		</div>
-	</body>
+        <!-- dynamic dropdown: self growth, passion, music, beauty, photography, everyday life -->
+      </form>
+      <button id="diffuse-button" class="diffuse-button">Diffuse</button>
+      <div id="email-button" class="email">@</div>
+    </div>
+  </body>
 </html>
